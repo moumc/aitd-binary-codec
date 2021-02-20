@@ -3,7 +3,7 @@
 const { coreTypes } = require("../dist/types");
 const Decimal = require("decimal.js");
 
-const { encodeAccountID } = require("ripple-address-codec");
+const { encodeAccountID } = require("aitd-address-codec");
 const { binary } = require("../dist/coretypes");
 const { Amount, Hash160 } = coreTypes;
 const { makeParser, readJSON } = binary;

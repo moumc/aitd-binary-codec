@@ -1,6 +1,6 @@
 {
   "name": "aitd-binary-codec",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AITD Ledger binary codec",
   "files": [
     "dist/*",
@@ -36,7 +36,7 @@
   },
   "scripts": {
     "compile": "tsc && cp ./src/enums/definitions.json ./dist/enums",
-    "prepare": "npm run compile && npm test",
+    "prepare": "npm run compile",
     "test": "jest",
     "lint": "eslint . --ext .ts --ext .test.js"
   },
