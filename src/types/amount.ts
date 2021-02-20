@@ -14,7 +14,7 @@ import { Buffer } from "buffer/";
 const MIN_IOU_EXPONENT = -96;
 const MAX_IOU_EXPONENT = 80;
 const MAX_IOU_PRECISION = 16;
-const MAX_DROPS = new Decimal("1e17");
+const MAX_DROPS = new Decimal("1e19");
 const MIN_XRP = new Decimal("1e-6");
 const mask = bigInt(0x00000000ffffffff);
 
@@ -136,7 +136,7 @@ class Amount extends SerializedType {
    */
   static fromParser(parser: BinaryParser): Amount {
     const isXRP = parser.peek() & 0x80;
-    const numBytes = isXRP ? 48 : 8;
+    const numBytes = isXRP ? 48 : 16;
     return new Amount(parser.read(numBytes));
   }
 
@@ -159,7 +159,7 @@ class Amount extends SerializedType {
       return `${sign}${num.toString()}`;
     } else {
       const parser = new BinaryParser(this.toString());
-      const mantissa = parser.read(8);
+      const mantissa = parser.read(16);
       const currency = Currency.fromParser(parser) as Currency;
       const issuer = AccountID.fromParser(parser) as AccountID;
 
