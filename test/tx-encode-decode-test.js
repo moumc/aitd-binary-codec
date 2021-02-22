@@ -27,7 +27,7 @@ const amount_parameters_message = input => {
   /* eslint-disable max-len */
   return `${input} is an illegal amount
 
-Native values must be described in drops, a million of which equal one XRP.
+Native values must be described in drops, a million of which equal one AITD.
 This must be an integer number, with the absolute value not exceeding 100000000000000000
 
 IOU values must have a maximum precision of 16 significant digits. They are serialized as

@@ -1,1 +1,1 @@
-# ripple-binary-codec
+# aitd-binary-codec

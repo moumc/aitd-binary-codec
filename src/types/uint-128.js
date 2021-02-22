@@ -1,17 +1,17 @@
-'use strict';var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {return typeof obj;} : function (obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;};var assert = require('assert');
-var BN = require('bn.js');
-var makeClass = require('../utils/make-class');var _require =
+const assert = require('assert');
+const BN = require('bn.js');
+const makeClass = require('../utils/make-class');
+const {bytesToHex, parseBytes, serializeUIntN}
+  = require('../utils/bytes-utils');
+const {UInt} = require('./uint');
 
-require('../utils/bytes-utils'),bytesToHex = _require.bytesToHex,parseBytes = _require.parseBytes,serializeUIntN = _require.serializeUIntN;var _require2 =
-require('./uint'),UInt = _require2.UInt;
+const HEX_REGEX = /^[A-F0-9]{16}$/;
 
-var HEX_REGEX = /^[A-F0-9]{16}$/;
-
-var UInt128 = makeClass({
+const UInt128 = makeClass({
   inherits: UInt,
-  statics: { width: 16 },
-  UInt128: function UInt128() {var arg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    var argType = typeof arg === 'undefined' ? 'undefined' : _typeof(arg);
+  statics: {width: 16},
+  UInt128(arg = 0) {
+    const argType = typeof arg;
     if (argType === 'number') {
       assert(arg >= 0);
       this._bytes = new Uint8Array(16);
@@ -22,28 +22,29 @@ var UInt128 = makeClass({
     } else {
       if (argType === 'string') {
         if (!HEX_REGEX.test(arg)) {
-          throw new Error(arg + ' is not a valid UInt128 hex string');
+          throw new Error(`${arg} is not a valid UInt128 hex string`);
         }
       }
       this._bytes = parseBytes(arg, Uint8Array);
     }
     assert(this._bytes.length === 16);
   },
-  toJSON: function toJSON() {
+  toJSON() {
     return bytesToHex(this._bytes);
   },
-  valueOf: function valueOf() {
+  valueOf() {
     return this.toBN();
   },
   cached: {
-    toBN: function toBN() {
+    toBN() {
       return new BN(this._bytes);
-    } },
-
-  toBytes: function toBytes() {
+    }
+  },
+  toBytes() {
     return this._bytes;
-  } });
-
+  }
+});
 
 module.exports = {
-  UInt128: UInt128 };
+  UInt128
+};

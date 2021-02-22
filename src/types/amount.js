@@ -18,10 +18,10 @@ const MIN_IOU_MANTISSA = '1000' + '0000' + '0000' + '0000'; // 16 digits
 const MAX_IOU_MANTISSA = '9999' + '9999' + '9999' + '9999'; // ..
 const MAX_IOU = new Decimal(`${MAX_IOU_MANTISSA}e${MAX_IOU_EXPONENT}`);
 const MIN_IOU = new Decimal(`${MIN_IOU_MANTISSA}e${MIN_IOU_EXPONENT}`);
-const DROPS_PER_XRP = new Decimal('1e6');
+const DROPS_PER_AITD = new Decimal('1e6');
 const MAX_NETWORK_DROPS = new Decimal('1e19');
-const MIN_XRP = new Decimal('1e-6')
-const MAX_XRP = MAX_NETWORK_DROPS.dividedBy(DROPS_PER_XRP);
+const MIN_AITD = new Decimal('1e-6')
+const MAX_AITD = MAX_NETWORK_DROPS.dividedBy(DROPS_PER_AITD);
 
 // Never use exponential form
 Decimal.config({
@@ -30,7 +30,7 @@ Decimal.config({
 });
 
 const AMOUNT_PARAMETERS_DESCRIPTION = `
-Native values must be described in drops, a million of which equal one XRP.
+Native values must be described in drops, a million of which equal one AITD.
 This must be an integer number, with the absolute value not exceeding \
 ${MAX_NETWORK_DROPS}
 
@@ -63,7 +63,7 @@ const parsers = {
     if (!str.match(/^\d+$/)) {
       raiseIllegalAmountError(str);
     }
-    return [new Decimal(str).dividedBy(DROPS_PER_XRP), Currency.XRP];
+    return [new Decimal(str).dividedBy(DROPS_PER_AITD), Currency.AITD];
   },
   object(object) {
     assert(isDefined(object.currency), 'currency must be defined');
@@ -77,7 +77,7 @@ const parsers = {
 const Amount = makeClass({
   Amount(value, currency, issuer, validate = true) {
     this.value = value || new Decimal('0');
-    this.currency = currency || Currency.XRP;
+    this.currency = currency || Currency.AITD;
     this.issuer = issuer || null;
     if (validate) {
       this.assertValueIsValid();
@@ -118,8 +118,8 @@ const Amount = makeClass({
 
       mantissa[0] &= 0x3F;
       const drops = new Decimal(`${sign}0x${bytesToHex(mantissa)}`);
-      const xrpValue = drops.dividedBy(DROPS_PER_XRP);
-      return new this(xrpValue, Currency.XRP, null, false);
+      const aitdValue = drops.dividedBy(DROPS_PER_AITD);
+      return new this(aitdValue, Currency.AITD, null, false);
     }
   },
   assertValueIsValid() {
@@ -127,9 +127,9 @@ const Amount = makeClass({
     if (!this.isZero()) {
       if (this.isNative()) {
         const abs = this.value.abs();
-        if (abs.lt(MIN_XRP) || abs.gt(MAX_XRP)) {
-          // value is in XRP scale, but show the value in canonical json form
-          raiseIllegalAmountError(this.value.times(DROPS_PER_XRP))
+        if (abs.lt(MIN_AITD) || abs.gt(MAX_AITD)) {
+          // value is in AITD scale, but show the value in canonical json form
+          raiseIllegalAmountError(this.value.times(DROPS_PER_AITD))
         }
         this.verifyNoDecimal(this.value); // This is a secondary fix for #31
       } else {
@@ -173,7 +173,7 @@ const Amount = makeClass({
     return this.isNative() ? -6 : this.value.e - 15;
   },
   valueString() {
-    return (this.isNative() ? this.value.times(DROPS_PER_XRP) : this.value)
+    return (this.isNative() ? this.value.times(DROPS_PER_AITD) : this.value)
       .toString();
   },
   toBytesSink(sink) {

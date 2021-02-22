@@ -20,7 +20,7 @@
 build/
 distrib/
 tags
-bin/rippled
+bin/aitdd
 Debug/*.*
 Release/*.*
 
@@ -36,7 +36,7 @@ db/*.db
 db/*.db-*
 
 # Ignore customized configs
-rippled.cfg
+aitdd.cfg
 validators.txt
 test/config.js
 

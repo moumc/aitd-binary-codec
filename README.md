@@ -1,5 +1,5 @@
-# ripple-binary-codec
+# aitd-binary-codec
 
-encode/decode to/from the ripple binary serialization format
+encode/decode to/from the aitd binary serialization format
 
-[![NPM](https://nodei.co/npm/ripple-binary-codec.png)](https://www.npmjs.org/package/ripple-binary-codec)
+[![NPM](https://nodei.co/npm/aitd-binary-codec.png)](https://www.npmjs.org/package/aitd-binary-codec)
