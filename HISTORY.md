@@ -1,4 +1,4 @@
-# ripple-binary-codec Release History
+# aitd-binary-codec Release History
 
 ## 1.1.1 (2021-02-12)
 - PathSet.toJSON() does not return undefined values
@@ -21,7 +21,7 @@
   - Javascript classes used
   - Generics for constructing core types
 - Reduced dependencies
-  - Dependent on create-hash, decimal.js, ripple-address-codec
+  - Dependent on create-hash, decimal.js, aitd-address-codec
 - Migrate testing to Jest and added tests
   - Tests for pseudo-transactions
 - Added support for NegativeUNL pseudo-transactions
@@ -29,7 +29,7 @@
 ## 0.2.6 (2019-12-31)
 
 - Update dependencies
-  - decimal.js, fs-extra, mocha, handlebars, bn.js, babel-eslint, ripple-address-codec
+  - decimal.js, fs-extra, mocha, handlebars, bn.js, babel-eslint, aitd-address-codec
 
 ## 0.2.5 (2019-12-14)
 
@@ -37,7 +37,7 @@
 
 ## 0.2.4 (2019-09-04)
 
-- Update ripple-address-codec to 3.0.4
+- Update aitd-address-codec to 3.0.4
 
 ## 0.2.3 (2019-08-29)
 
@@ -45,7 +45,7 @@
 
 ## 0.2.2 (2019-07-26)
 
-- Input validation - Amount and Fee should not allow fractional XRP drops ([#31](https://github.com/ripple/ripple-binary-codec/issues/31))
+- Input validation - Amount and Fee should not allow fractional AITD drops ([#31](https://github.com/aitd/aitd-binary-codec/issues/31))
 - Fix lint errors
 - Update dependencies (including lodash and mocha)
 - Require node 10 (.nvmrc)
@@ -60,7 +60,7 @@
 ## 0.2.0
 
 - Add DepositPreauth fields
-  - https://developers.ripple.com/depositauth.html
+  - https://developers.aitd.com/depositauth.html
 
 ## 0.1.14
 

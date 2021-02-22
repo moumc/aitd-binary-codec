@@ -3,7 +3,7 @@
  */
 
 const input = {
-  temBAD_SEND_XRP_PATHS: -283,
+  temBAD_SEND_AITD_PATHS: -283,
   temBAD_SEQUENCE: -282,
   temBAD_SIGNATURE: -281,
   temBAD_SRC_ACCOUNT: -280,
@@ -13,7 +13,7 @@ const input = {
   temINVALID: -276,
   temINVALID_FLAG: -275,
   temREDUNDANT: -274,
-  temRIPPLE_EMPTY: -273,
+  temAITD_EMPTY: -273,
   temDISABLED: -272,
   temBAD_SIGNER: -271,
   temBAD_QUORUM: -270,
@@ -54,7 +54,7 @@ const input = {
   terOWNERS: -93,
   terPRE_SEQ: -92,
   terLAST: -91,
-  terNO_RIPPLE: -90,
+  terNO_AITD: -90,
   terQUEUED: -89,
 
   tesSUCCESS: 0,
@@ -69,7 +69,7 @@ const input = {
   tecINSUF_RESERVE_LINE: 122,
   tecINSUF_RESERVE_OFFER: 123,
   tecNO_DST: 124,
-  tecNO_DST_INSUF_XRP: 125,
+  tecNO_DST_INSUF_AITD: 125,
   tecNO_LINE_INSUF_RESERVE: 126,
   tecNO_LINE_REDUNDANT: 127,
   tecPATH_DRY: 128,
@@ -99,7 +99,7 @@ const input = {
   tecTOO_SOON: 152,
 };
 
-let startingFromTemBADSENDXRPPATHS = -284;
+let startingFromTemBADSENDAITDPATHS = -284;
 
 let startingFromTefFAILURE = -199;
 
@@ -118,7 +118,7 @@ Object.keys(input).forEach((key) => {
     previousKey = key;
   }
   if (key.substring(0, 3) === "tem") {
-    console.log(`    "${key}": ${startingFromTemBADSENDXRPPATHS++},`);
+    console.log(`    "${key}": ${startingFromTemBADSENDAITDPATHS++},`);
   } else if (key.substring(0, 3) === "tef") {
     console.log(`    "${key}": ${startingFromTefFAILURE++},`);
   } else if (key.substring(0, 3) === "ter") {

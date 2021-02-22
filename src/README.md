@@ -1,3 +1,3 @@
-# ripple-binary-codec
+# aitd-binary-codec
 
-Serialize and deserialize transactions according to the XRP Ledger protocol. 
+Serialize and deserialize transactions according to the AITD Ledger protocol. 

@@ -50,7 +50,7 @@ describe("Hash256", function () {
 });
 
 describe("Currency", function () {
-  test("Will have a null iso() for dodgy XRP ", function () {
+  test("Will have a null iso() for dodgy AITD ", function () {
     const bad = Currency.from("0000000000000000000000005852500000000000");
     expect(bad.iso()).toBeUndefined();
     expect(bad.isNative()).toBe(false);
@@ -70,8 +70,8 @@ describe("Currency", function () {
     expect(Currency.from("USD").toJSON()).toBe("USD");
   });
   test("can be constructed from a Buffer", function () {
-    const xrp = new Currency(Buffer.alloc(20));
-    expect(xrp.iso()).toBe("XRP");
+    const aitd = new Currency(Buffer.alloc(20));
+    expect(aitd.iso()).toBe("AITD");
   });
   test("throws on invalid reprs", function () {
     expect(() => Currency.from(Buffer.alloc(19))).toThrow();
