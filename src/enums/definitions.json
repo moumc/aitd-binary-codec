@@ -27,7 +27,7 @@
     "Invalid": -1,
     "AccountRoot": 97,
     "DirectoryNode": 100,
-    "AitdState": 114,
+    "RippleState": 114,
     "Ticket": 84,
     "SignerList": 83,
     "Offer": 111,
@@ -40,8 +40,7 @@
     "Check": 67,
     "Nickname": 110,
     "Contract": 99,
-    "GeneratorMap": 103,
-    "NegativeUNL": 78
+    "GeneratorMap": 103
   },
   "FIELDS": [
     [
@@ -815,7 +814,7 @@
       }
     ],
     [
-      "AitdEscrow",
+      "RippleEscrow",
       {
         "nth": 17,
         "isVLEncoded": false,
@@ -1025,46 +1024,6 @@
       }
     ],
     [
-      "UNLModifyValidator",
-      {
-        "nth": 19,
-        "isVLEncoded": true,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "Blob"
-      }
-    ],
-    [
-      "ContractData",
-      {
-        "nth": 19,
-        "isVLEncoded": true,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "Blob"
-      }
-    ],
-    [
-      "ValidatorToDisable",
-      {
-        "nth": 20,
-        "isVLEncoded": true,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "Blob"
-      }
-    ],
-    [
-      "ValidatorToReEnable",
-      {
-        "nth": 20,
-        "isVLEncoded": true,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "Blob"
-      }
-    ],
-    [
       "Account",
       {
         "nth": 1,
@@ -1138,16 +1097,6 @@
       "RegularKey",
       {
         "nth": 8,
-        "isVLEncoded": true,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "AccountID"
-      }
-    ],
-    [
-      "ContractAddress",
-      {
-        "nth": 9,
         "isVLEncoded": true,
         "isSerialized": true,
         "isSigningField": true,
@@ -1285,16 +1234,6 @@
       }
     ],
     [
-      "DisabledValidator",
-      {
-        "nth": 19,
-        "isVLEncoded": false,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "STObject"
-      }
-    ],
-    [
       "ArrayEndMarker",
       {
         "nth": 1,
@@ -1378,16 +1317,6 @@
       "Majorities",
       {
         "nth": 16,
-        "isVLEncoded": false,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "STArray"
-      }
-    ],
-    [
-      "DisabledValidators",
-      {
-        "nth": 17,
         "isVLEncoded": false,
         "isSerialized": true,
         "isSigningField": true,
@@ -1555,26 +1484,6 @@
       }
     ],
     [
-      "TicketCount",
-      {
-        "nth": 40,
-        "isVLEncoded": false,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "UInt32"
-      }
-    ],
-    [
-      "TicketSequence",
-      {
-        "nth": 41,
-        "isVLEncoded": false,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "UInt32"
-      }
-    ],
-    [
       "Channel",
       {
         "nth": 22,
@@ -1608,16 +1517,6 @@
       "TickSize",
       {
         "nth": 16,
-        "isVLEncoded": false,
-        "isSerialized": true,
-        "isSigningField": true,
-        "type": "UInt8"
-      }
-    ],
-    [
-      "UNLModifyDisabling",
-      {
-        "nth": 17,
         "isVLEncoded": false,
         "isSerialized": true,
         "isSigningField": true,
@@ -1661,11 +1560,11 @@
     "temBAD_PATH": -291,
     "temBAD_PATH_LOOP": -290,
     "temBAD_REGKEY": -289,
-    "temBAD_SEND_AITD_LIMIT": -288,
-    "temBAD_SEND_AITD_MAX": -287,
-    "temBAD_SEND_AITD_NO_DIRECT": -286,
-    "temBAD_SEND_AITD_PARTIAL": -285,
-    "temBAD_SEND_AITD_PATHS": -284,
+    "temBAD_SEND_XRP_LIMIT": -288,
+    "temBAD_SEND_XRP_MAX": -287,
+    "temBAD_SEND_XRP_NO_DIRECT": -286,
+    "temBAD_SEND_XRP_PARTIAL": -285,
+    "temBAD_SEND_XRP_PATHS": -284,
     "temBAD_SEQUENCE": -283,
     "temBAD_SIGNATURE": -282,
     "temBAD_SRC_ACCOUNT": -281,
@@ -1675,7 +1574,7 @@
     "temINVALID": -277,
     "temINVALID_FLAG": -276,
     "temREDUNDANT": -275,
-    "temAITD_EMPTY": -274,
+    "temRIPPLE_EMPTY": -274,
     "temDISABLED": -273,
     "temBAD_SIGNER": -272,
     "temBAD_QUORUM": -271,
@@ -1715,7 +1614,7 @@
     "terOWNERS": -93,
     "terPRE_SEQ": -92,
     "terLAST": -91,
-    "terNO_AITD": -90,
+    "terNO_RIPPLE": -90,
     "terQUEUED": -89,
 
     "tesSUCCESS": 0,
@@ -1730,7 +1629,7 @@
     "tecINSUF_RESERVE_LINE": 122,
     "tecINSUF_RESERVE_OFFER": 123,
     "tecNO_DST": 124,
-    "tecNO_DST_INSUF_AITD": 125,
+    "tecNO_DST_INSUF_XRP": 125,
     "tecNO_LINE_INSUF_RESERVE": 126,
     "tecNO_LINE_REDUNDANT": 127,
     "tecPATH_DRY": 128,
@@ -1771,7 +1670,7 @@
     "NickNameSet": 6,
     "OfferCreate": 7,
     "OfferCancel": 8,
-    "NoLongerUsed": 9,
+    "Contract": 9,
     "TicketCreate": 10,
     "TicketCancel": 11,
     "SignerListSet": 12,
@@ -1784,10 +1683,8 @@
     "DepositPreauth": 19,
     "TrustSet": 20,
     "AccountDelete": 21,
-    "Contract": 22,
 
     "EnableAmendment": 100,
-    "SetFee": 101,
-    "UNLModify": 102
+    "SetFee": 101
   }
 }
