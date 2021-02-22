@@ -1024,6 +1024,16 @@
       }
     ],
     [
+      "ContractData",
+      {
+        "nth": 19,
+        "isVLEncoded": true,
+        "isSerialized": true,
+        "isSigningField": true,
+        "type": "Blob"
+      }
+    ],
+    [
       "Account",
       {
         "nth": 1,
@@ -1097,6 +1107,16 @@
       "RegularKey",
       {
         "nth": 8,
+        "isVLEncoded": true,
+        "isSerialized": true,
+        "isSigningField": true,
+        "type": "AccountID"
+      }
+    ],
+    [
+      "ContractAddress",
+      {
+        "nth": 9,
         "isVLEncoded": true,
         "isSerialized": true,
         "isSigningField": true,
@@ -1670,7 +1690,7 @@
     "NickNameSet": 6,
     "OfferCreate": 7,
     "OfferCancel": 8,
-    "Contract": 9,
+    "NoLongerUsed": 9,
     "TicketCreate": 10,
     "TicketCancel": 11,
     "SignerListSet": 12,
@@ -1683,6 +1703,7 @@
     "DepositPreauth": 19,
     "TrustSet": 20,
     "AccountDelete": 21,
+    "Contract": 22,
 
     "EnableAmendment": 100,
     "SetFee": 101

@@ -7,7 +7,9 @@ const {SerializedType} = require('./serialized-type');
 const {bytesToHex} = require('../utils/bytes-utils');
 const {Currency} = require('./currency');
 const {AccountID} = require('./account-id');
-const {UInt64} = require('./uint-64');
+const {UInt64} = require('./uint-64');var _require6 =
+require('./uint-128'),UInt128 = _require6.UInt128;
+
 
 const MIN_IOU_EXPONENT = -96;
 const MAX_IOU_EXPONENT = 80;
@@ -17,7 +19,7 @@ const MAX_IOU_MANTISSA = '9999' + '9999' + '9999' + '9999'; // ..
 const MAX_IOU = new Decimal(`${MAX_IOU_MANTISSA}e${MAX_IOU_EXPONENT}`);
 const MIN_IOU = new Decimal(`${MIN_IOU_MANTISSA}e${MIN_IOU_EXPONENT}`);
 const DROPS_PER_XRP = new Decimal('1e6');
-const MAX_NETWORK_DROPS = new Decimal('1e17');
+const MAX_NETWORK_DROPS = new Decimal('1e19');
 const MIN_XRP = new Decimal('1e-6')
 const MAX_XRP = MAX_NETWORK_DROPS.dividedBy(DROPS_PER_XRP);
 
@@ -94,7 +96,7 @@ const Amount = makeClass({
       throw new Error(`unsupported value: ${value}`);
     },
     fromParser(parser) {
-      const mantissa = parser.read(8);
+      const mantissa = parser.read(16);
       const b1 = mantissa[0];
       const b2 = mantissa[1];
 
@@ -148,7 +150,7 @@ const Amount = makeClass({
     // This is a tertiary fix for #31
     const integerNumberString = this.verifyNoDecimal();
 
-    return new UInt64(
+    return new UInt128(
       new BN(integerNumberString));
   },
   verifyNoDecimal() {
